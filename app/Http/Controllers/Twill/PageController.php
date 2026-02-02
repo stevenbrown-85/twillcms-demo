@@ -1,0 +1,70 @@
+<?php
+
+namespace App\Http\Controllers\Twill;
+
+use A17\Twill\Models\Contracts\TwillModelContract;
+use A17\Twill\Services\Listings\Columns\Text;
+use A17\Twill\Services\Listings\TableColumns;
+use A17\Twill\Services\Forms\Fields\Input;
+use A17\Twill\Services\Forms\Fields\Medias;
+use A17\Twill\Services\Forms\Fields\BlockEditor;
+use A17\Twill\Services\Forms\Form;
+use A17\Twill\Http\Controllers\Admin\ModuleController as BaseModuleController;
+
+class PageController extends BaseModuleController
+{
+    protected $moduleName = 'pages';
+    /**
+     * This method can be used to enable/disable defaults. See setUpController in the docs for available options.
+     */
+    protected function setUpController(): void
+    {
+        $this->setPermalinkBase('');
+    }
+
+    /**
+     * See the table builder docs for more information. If you remove this method you can use the blade files.
+     * When using twill:module:make you can specify --bladeForm to use a blade form instead.
+     */
+    public function getForm(TwillModelContract $model): Form
+    {
+        $form = parent::getForm($model);
+
+        $form->add(
+            Medias::make()->name('banner_image')->label('Banner image')
+        );
+
+        $form->add(
+            Input::make()->name('banner_pretitle')->label('Banner Pretitle')
+        );
+
+        //NEED TO MIGRATE TO ADD BANNER TITLE FIELD
+        //$form->add(
+        //    Input::make()->name('banner_title')->label('Banner Title')
+        //);
+
+        $form->add(
+            Input::make()->name('banner_strapline')->label('Banner Strapline')
+        );
+
+        $form->add(
+            BlockEditor::make()
+        );
+
+        return $form;
+    }
+
+    /**
+     * This is an example and can be removed if no modifications are needed to the table.
+     */
+    protected function additionalIndexTableColumns(): TableColumns
+    {
+        $table = parent::additionalIndexTableColumns();
+
+        //$table->add(
+        //    Text::make()->field('published')->title('Published')
+        //);
+
+        return $table;
+    }
+}
