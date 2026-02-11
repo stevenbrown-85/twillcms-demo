@@ -3,23 +3,24 @@
 namespace App\Http\Controllers\Twill;
 
 use A17\Twill\Models\Contracts\TwillModelContract;
-use A17\Twill\Services\Listings\Columns\Text;
+use A17\Twill\Services\Forms\Fields\Browser;
 use A17\Twill\Services\Listings\TableColumns;
-use A17\Twill\Services\Forms\Fields\Input;
-use A17\Twill\Services\Forms\Fields\Medias;
-use A17\Twill\Services\Forms\Fields\BlockEditor;
 use A17\Twill\Services\Forms\Form;
-use A17\Twill\Http\Controllers\Admin\ModuleController as BaseModuleController;
+use A17\Twill\Http\Controllers\Admin\NestedModuleController as BaseModuleController;
+use App\Models\Page;
 
-class PageController extends BaseModuleController
+class MenuLinkController extends BaseModuleController
 {
-    protected $moduleName = 'pages';
+    protected $moduleName = 'menuLinks';
+    protected $showOnlyParentItemsInBrowsers = true;
+    protected $nestedItemsDepth = 1;
     /**
      * This method can be used to enable/disable defaults. See setUpController in the docs for available options.
      */
     protected function setUpController(): void
     {
-        $this->setPermalinkBase('');
+        $this->disablePermalink();
+        $this->enableReorder();
     }
 
     /**
@@ -29,27 +30,9 @@ class PageController extends BaseModuleController
     public function getForm(TwillModelContract $model): Form
     {
         $form = parent::getForm($model);
-
-        $form->add(
-            Medias::make()->name('banner_image')->label('Banner image')
-        );
-
-        $form->add(
-            Input::make()->name('banner_pretitle')->label('Banner Pretitle')
-        );
-
-        $form->add(
-            Input::make()->name('banner_title')->label('Banner Title')
-        );
-
-        $form->add(
-            Input::make()->name('banner_strapline')->label('Banner Strapline')
-        );
-
-        $form->add(
-            BlockEditor::make()
-        );
-
+ 
+        $form->add(Browser::make()->name('page')->modules([Page::class]));
+ 
         return $form;
     }
 
@@ -59,10 +42,6 @@ class PageController extends BaseModuleController
     protected function additionalIndexTableColumns(): TableColumns
     {
         $table = parent::additionalIndexTableColumns();
-
-        //$table->add(
-        //    Text::make()->field('published')->title('Published')
-        //);
 
         return $table;
     }
