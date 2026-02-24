@@ -1,35 +1,71 @@
+# Twill CMS Demo
+
 ## About
+A simple Twill CMS demo project featuring:
+- Page module
+- Nested menu
+- Basic content blocks
 
-Simple Twillcms demo with page module, menu and some simple blocks
+---
 
-## Setup
+## Setup Instructions
 
-Clone this repo
+### 1. Clone the repository
+git clone <repo-url>
+cd <project-folder>
 
-Set up local database
+### 2. Create a local database
+Create a new database for the project in your local environment.
 
-copy .env.example - save as .env
+### 3. Environment configuration
+Copy the example environment file:
+cp .env.example .env
 
-Update DB connection detail in the env file
+Update your database connection details inside the `.env` file.
 
-make sure QUEUE_CONNECTION=sync - this is for the nested menu
+IMPORTANT:
+Set the queue connection to sync (required for nested menu support):
+QUEUE_CONNECTION=sync
 
+---
+
+### 4. Install backend dependencies
 composer install
 
+Run migrations:
 php artisan migrate
 
+Install Twill:
 php artisan twill:install
 
+Generate application key:
 php artisan key:generate
 
+Link storage:
 php artisan storage:link
 
-node v22.12.0
+---
 
+### 5. Install frontend dependencies
+Make sure you're using:
+Node v22.12.0
+
+Then run:
 npm install
 
+---
+
+### 6. Run the project
+Start the Laravel server:
 php artisan serve
 
+In a separate terminal, run:
 npm run dev
 
-To access the cms go to /e1-cms
+---
+
+## Accessing the CMS
+
+Once running, access the CMS at:
+
+/e1-cms
