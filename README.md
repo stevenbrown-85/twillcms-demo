@@ -11,7 +11,7 @@ A simple Twill CMS demo project featuring:
 ## Setup Instructions
 
 ### 1. Clone the repository
-git clone git@github.com:stevenbrown-85/twillcms-demo.git
+git clone [git@github.com:stevenbrown-85/twillcms-demo.git](https://github.com/stevenbrown-85/twillcms-demo.git)
 cd twillcms-demo
 
 ### 2. Create a local database
