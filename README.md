@@ -25,6 +25,7 @@ node v22.12.0
 npm install
 
 php artisan serve
+
 npm run dev
 
 To access the cms go to /e1-cms
