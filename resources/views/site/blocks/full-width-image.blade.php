@@ -1,0 +1,1 @@
+<img src="{{ $block->image('fullWidthImage', 'desktop') }}" alt="" class="w-full aspect-video">

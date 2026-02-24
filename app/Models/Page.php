@@ -17,6 +17,7 @@ class Page extends Model
         'title',
         'description',
         'banner_pretitle',
+        'banner_title',
         'banner_strapline',
     ];
     
@@ -29,13 +30,13 @@ class Page extends Model
             'desktop' => [
                 [
                     'name' => 'landscape',
-                    'ratio' => 128 / 25,
+                    'ratio' => 16 / 9,
                 ],
             ],
             'mobile' => [
                 [
-                    'name' => 'square',
-                    'ratio' => 1 / 1,
+                    'name' => 'phone',
+                    'ratio' => 45 / 100,
                 ],
             ],
         ],

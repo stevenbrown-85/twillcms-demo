@@ -1,5 +1,5 @@
-@twillBlockTitle('Text')
-@twillBlockIcon('text')
+@twillBlockTitle('Text With Image')
+@twillBlockIcon('image-text')
 @twillBlockGroup('app')
 
 @php
@@ -21,6 +21,16 @@ $wysiwygOptions = [
     'align',
 ];
 
+$layoutOptions = [
+    [
+        'value' => 'left',
+        'label' => 'Image Left'
+    ],
+    [
+        'value' => 'right',
+        'label' => 'Image Right'
+    ],
+];
 
 $colourOptions = [
     [
@@ -32,7 +42,6 @@ $colourOptions = [
         'label' => 'Dark'
     ],
 ];
-
 @endphp
 
 <x-twill::input
@@ -47,6 +56,19 @@ $colourOptions = [
     placeholder="Text"
     :toolbar-options="$wysiwygOptions"
     :translated="true"
+/>
+
+<x-twill::medias
+    name="textWithImage"
+    label="Image"
+/>
+
+<x-twill::radios
+    name="layout"
+    label="Layout"
+    default="left"
+    :inline="true"
+    :options="$layoutOptions"
 />
 
 <x-twill::radios

@@ -43,7 +43,7 @@ class PageController extends BaseModuleController
         );
 
         $form->add(
-            Input::make()->name('banner_strapline')->label('Banner Strapline')
+            Input::make()->name('banner_strapline')->label('Banner Strapline')->type('textarea')
         );
 
         $form->add(

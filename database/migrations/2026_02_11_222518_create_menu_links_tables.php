@@ -14,6 +14,8 @@ return new class extends Migration
             
             // feel free to modify the name of this column, but title is supported by default (you would need to specify the name of the column Twill should consider as your "title" column in your module controller if you change it)
             $table->string('title', 200)->nullable();
+            $table->string('url', 200)->nullable();
+            $table->boolean('separator')->default(false);
             
             $table->integer('position')->unsigned()->nullable();
             
@@ -24,17 +26,11 @@ return new class extends Migration
             // this will create the required columns to support nesting for this module
             $table->nestedSet();
         });
-
-        
-
-        
-
         
     }
 
     public function down()
     {
-        
         Schema::dropIfExists('menu_links');
     }
 };

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('title', 200)->nullable();
 
             $table->string('banner_pretitle')->nullable();
+            $table->string('banner_title')->nullable();
             $table->string('banner_strapline')->nullable();
             
             // $table->timestamp('publish_start_date')->nullable();

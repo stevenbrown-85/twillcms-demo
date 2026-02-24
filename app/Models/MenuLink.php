@@ -15,7 +15,10 @@ class MenuLink extends Model implements Sortable
     protected $fillable = [
         'published',
         'title',
+        'url',
+        'separator',
         'position',
+        'parent_id',
     ];
     
 }
