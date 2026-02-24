@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>#madewithtwill website</title>
-    @vite('resources/css/app.css') 
+    {!! SEOTools::generate() !!}
+    @vite('resources/css/app.css')
 </head>
 <body>
 <div>

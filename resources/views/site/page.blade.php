@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Twill Demo</title>
+    {!! SEO::generate() !!}
 
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 

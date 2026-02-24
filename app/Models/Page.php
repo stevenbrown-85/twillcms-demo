@@ -7,10 +7,13 @@ use A17\Twill\Models\Behaviors\HasSlug;
 use A17\Twill\Models\Behaviors\HasMedias;
 use A17\Twill\Models\Behaviors\HasRevisions;
 use A17\Twill\Models\Model;
+use CwsDigital\TwillMetadata\Models\Behaviours\HasMetadata;
 
 class Page extends Model 
 {
-    use HasBlocks, HasSlug, HasMedias, HasRevisions;
+    use HasBlocks, HasSlug, HasMedias, HasRevisions, HasMetadata;
+
+    public \Illuminate\Contracts\Foundation\Application|array|\Illuminate\Config\Repository|\Illuminate\Foundation\Application $metadataFallbacks = [];
 
     protected $fillable = [
         'published',

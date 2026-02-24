@@ -50,6 +50,20 @@ class PageController extends BaseModuleController
             BlockEditor::make()
         );
 
+        // copy the below to include metadata fieldset
+        $form->addFieldset(
+            \A17\Twill\Services\Forms\Fieldset::make()
+            ->title(trans('twill-metadata::form.titles.fieldset'))
+            ->id('metadata')
+            ->fields([
+                \A17\Twill\Services\Forms\BladePartial::make()->view('twill-metadata::includes.metadata-fields')
+                ->withAdditionalParams([
+                    'metadata_card_type_options' => config('metadata.card_type_options'),
+                    'metadata_og_type_options' => config('metadata.opengraph_type_options'),
+                ]),
+            ])
+        );
+
         return $form;
     }
 

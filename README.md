@@ -15,9 +15,13 @@ Update DB connection detail in the env file
 make sure QUEUE_CONNECTION=sync - this is for the nested menu
 
 composer install
+
 php artisan migrate
+
 php artisan twill:install
+
 php artisan key:generate
+
 php artisan storage:link
 
 node v22.12.0
