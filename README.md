@@ -5,6 +5,8 @@ A simple Twill CMS demo project featuring:
 - Page module
 - Nested menu
 - Basic content blocks
+- Simple settings (Homepage selection / SEO fallbacks)
+- SEO using the cwsdigital/twill-metadata package
 
 ---
 
@@ -30,19 +32,21 @@ QUEUE_CONNECTION=sync
 ---
 
 ### 4. Install backend dependencies
+Minimum php requirement is 8.3
+
 composer install
 
 Run migrations:
-php artisan migrate
+```php artisan migrate```
 
 Install Twill:
-php artisan twill:install
+```php artisan twill:install```
 
 Generate application key:
-php artisan key:generate
+```php artisan key:generate```
 
 Link storage:
-php artisan storage:link
+```php artisan storage:link```
 
 ---
 
@@ -51,16 +55,16 @@ Make sure you're using:
 Node v22.12.0
 
 Then run:
-npm install
+```npm install```
 
 ---
 
 ### 6. Run the project
 Start the Laravel server:
-php artisan serve
+```php artisan serve```
 
 In a separate terminal, run:
-npm run dev
+```npm run dev```
 
 ---
 
@@ -69,3 +73,11 @@ npm run dev
 Once running, access the CMS at:
 
 /e1-cms
+
+---
+
+## Resources
+
+Docs: [https://twillcms.com/docs/](https://twillcms.com/docs/)
+
+Guides: [https://twillcms.com/guides/](https://twillcms.com/guides/)
