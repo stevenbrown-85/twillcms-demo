@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="en">
 <head>
-    {!! SEOTools::generate() !!}
     @vite('resources/css/app.css')
 </head>
 <body>
